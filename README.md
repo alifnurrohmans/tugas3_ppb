@@ -46,22 +46,26 @@ Berikut adalah rincian peran dan properti kunci dari setiap widget yang digunaka
 
 Di dalam widget `Column` utama pada halaman `RowColumnPage`, terdapat **4 komponen utama** yang disusun secara vertikal dengan rincian isi sebagai berikut:
 
-* **Container Pertama (Visual Box)**
+* **Container Pertama (Visual Box) - Stateless**
+  * **Tipe**: Bagian dari `StatelessWidget` (RowColumnPage).
   * **Warna**: `Colors.lightBlue[100]`
   * **Isi**: Menggunakan `AspectRatio (1.0)` untuk membungkus `Center` widget yang berisi `Image.network`.
-  * **Fungsi**: Menampilkan gambar profil/produk dari internet agar tetap presisi berbentuk kotak di semua ukuran layar.
+  * **Fungsi**: Menampilkan gambar statis dari internet agar tetap presisi berbentuk kotak. Data di sini tidak berubah (tetap).
 
-* **Container Kedua (Label Box)**
+* **Container Kedua (Label Box) - Stateless**
+  * **Tipe**: Bagian dari `StatelessWidget` (RowColumnPage).
   * **Warna**: `Colors.pink[200]`
   * **Isi**: Sebuah widget `Text` bertuliskan "What image is that" dengan ukuran font 16.
-  * **Fungsi**: Memberikan keterangan atau label teks tepat di bawah area gambar.
+  * **Fungsi**: Memberikan label teks statis tepat di bawah area gambar. Tampilan ini tidak akan berubah selama aplikasi berjalan.
 
-* **Container Ketiga (Category Box)**
+* **Container Ketiga (Category Box) - Stateless**
+  * **Tipe**: Bagian dari `StatelessWidget` (RowColumnPage).
   * **Warna**: `Colors.yellow[200]`
   * **Isi**: Sebuah `Row` yang berisi 3 buah `Column`. Masing-masing `Column` berisi pasangan `Icon` dan `Text` (Food, Scenery, dan People).
-  * **Fungsi**: Sebagai baris menu kategori atau navigasi interaktif untuk pengguna.
+  * **Fungsi**: Sebagai baris menu kategori statis yang hanya berfungsi untuk menampilkan informasi visual.
 
-* **CounterCard (Interactive Box)**
+* **CounterCard (Interactive Box) - StatefulWidget**
+  * **Tipe**: Merupakan `StatefulWidget` terpisah yang dipanggil ke dalam kolom.
   * **Warna**: `Colors.cyan[100]`
-  * **Isi**: Sebuah `Row` yang berisi `Text` untuk menampilkan nilai variabel `_counter` dan sebuah `IconButton` dengan ikon tambah (+).
-  * **Fungsi**: Bagian interaktif utama aplikasi yang mendemonstrasikan perubahan state (angka bertambah) saat tombol diklik.
+  * **Isi**: Sebuah `Row` yang berisi `Text` untuk menampilkan nilai variabel `_counter` dan sebuah `IconButton` (+).
+  * **Fungsi**: Komponen interaktif yang bisa berubah tampilannya secara real-time. Menggunakan `setState()` untuk memperbarui angka counter di layar saat tombol ditekan, mendemonstrasikan manajemen state di Flutter.
